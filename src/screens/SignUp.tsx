@@ -1,8 +1,6 @@
 import { VStack, Image, Center, Text, Heading, ScrollView } from '@gluestack-ui/themed'
 
-import { useNavigation } from '@react-navigation/native'
-
-import { AuthNavigatorRoutesProps } from "@routes/auth.routes"
+import { useNavigation } from '@react-navigation/native';
 
 import BackgroundImg from '@assets/background.png'
 import Logo from '@assets/logo.svg'
@@ -10,14 +8,16 @@ import Logo from '@assets/logo.svg'
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
-{/*Default source ele acelera o carregamento da imagem pois ele entende que aquela imagem nao muda  */}
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 
-export function SignIn(){
+export function SignUp(){
+
+  {/*Default source ele acelera o carregamento da imagem pois ele entende que aquela imagem nao muda  */}
 
   const navigator = useNavigation<AuthNavigatorRoutesProps>();
 
-  function handleNewAccount(){
-    navigator.navigate('signUp');
+  function handleGoBack(){
+    navigator.goBack();
   }
 
   return (
@@ -41,8 +41,10 @@ export function SignIn(){
             </Text>
           </Center>
 
-          <Center gap="$2">
-            <Heading color='$gray100'>Acesse a conta</Heading>
+          <Center flex={1} gap="$2">
+            <Heading color='$gray100'>Crie sua conta</Heading>
+
+            <Input placeholder="Nome" />
 
             <Input 
               placeholder="E-mail" 
@@ -51,16 +53,11 @@ export function SignIn(){
             />
 
             <Input placeholder="Senha" secureTextEntry />
-            <Button title="Acessar" />
+
+            <Button title="Criar e acessar" />
           </Center>
 
-          <Center flex={1} justifyContent='flex-end' mt="$4">
-            <Text color="$gray100" fontSize="$sm" mb="$3" fontFamily="$body">
-              Ainda não tem acesso?
-            </Text>
-
-            <Button title="Criar conta" variant="outline" onPress={handleNewAccount} />
-          </Center>
+          <Button title="Voltar para o login" variant="outline" mt="$12" onPress={handleGoBack}/>
         </VStack>
       </VStack>
     </ScrollView>
