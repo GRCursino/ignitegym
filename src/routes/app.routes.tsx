@@ -73,7 +73,7 @@ export function AppRoutes(){
         }}
       />
 
-      {/* A rota de Exercise não é uma rota acessivel por botão, por este motivo
+      {/* A rota de Exercise não é uma rota acessivel por botão no menu inferior, por este motivo
           que se usa a opção "tabBarButton: () => null"
       */}
       
